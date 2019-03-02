@@ -18,6 +18,6 @@
 
 - [A5-计算属性和侦听器](./A1-基础/A5-计算属性和侦听器.md)
 
-- [A6-Class 与 Style 绑定](./A1-基础/A6-Class 与 Style 绑定.md)
+- [A6-Class 与 Style 绑定](./A1-基础/A6-Class与Style绑定.md)
 
   
