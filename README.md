@@ -6,4 +6,5 @@
 - [vuejs官方文档](./JavaScript/02-vuejs官方文档/README.md)
 - [JS高程3](./JavaScript/03-JS高程3/README.md)
 - [JS经典实例2](./JavaScript/04-JS经典实例2/README.md)
+- [JS正则表达式迷你书](./JavaScript/05-JS正则表达式迷你书/README.md)
 
