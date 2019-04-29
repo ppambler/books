@@ -162,3 +162,36 @@ document.body.addEventListener("click", function(){
 
 ![1556536610229](img/faq/1556536610229.png)
 
+## ★第 3 章
+
+### 1.函数与方法的区别？？
+
+方法和对象相关
+
+函数和对象无关
+
+Java：只有“方法”，于是有静态方法和方法这样直接的区别
+
+C++：方法在类里边，即为成员函数，否则，则是函数！
+
+C：只有函数
+
+JavaScript：对象里边的函数叫方法，对象外边的函数叫函数！
+
+总之，它们俩都差不多！只不过方法可以访问对象里边的那些字段，从传参的角度来说，函数是显示传递参数的，而方法通常是隐式传递的！如隐式传个this值！
+
+**➹：**[如何理解 JavaScript 中方法（method）和函数（function）的区别？ - 知乎](https://www.zhihu.com/question/22602023)
+
+**➹：**[方法（method）和函数（function）有什么区别？ - 文章 - 伯乐在线](http://blog.jobbole.com/44230/)
+
+**➹：**[oop - What's the difference between a method and a function? - Stack Overflow](https://stackoverflow.com/questions/155609/whats-the-difference-between-a-method-and-a-function)
+
+**➹：**[In JavaScript: Syntax difference between function & method definition within a class - Stack Overflow](https://stackoverflow.com/questions/14088842/in-javascript-syntax-difference-between-function-method-definition-within-a-c)
+
+### 2. 回调函数在哪种情况下会同步调用，或者异步调用呢？
+
+
+
+### 3.  箭头函数和函数表达式的区别是什么？
+
+### 4. 你为什么需要在函数中使用默认参数？
