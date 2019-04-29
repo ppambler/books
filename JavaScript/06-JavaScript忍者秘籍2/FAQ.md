@@ -68,7 +68,7 @@ document.body.addEventListener("mousemove", function() {	//#B
 
 **➹：**[javascript引擎 PK: V8 vs Spidermonkey - 程序园](http://www.voidcn.com/article/p-tsikhzve-ea.html)
 
-**➹：**[引擎浅谈 SpiderMonkey & Google V8|吃代码的兔子窝](https://www.wangshaoxing.com/blog/javascript-engines.html)
+**➹：**[引擎浅谈 SpiderMonkey & Google V8 - 吃代码的兔子窝](https://www.wangshaoxing.com/blog/javascript-engines.html)
 
 **➹：**[★JS 引擎比较 - Mozilla 产品与私有技术 - MDN](https://developer.mozilla.org/zh-CN/docs/Mozilla/Projects/SpiderMonkey/Comparision_of_JS_engines)
 
@@ -117,27 +117,28 @@ document.body.addEventListener("click", function(){		   //#C
 当DOM已经就绪并全部构建完成，就会触发这个事件：
 
 ```js
-window.onload = function（）{};
+window.onload = function(){};
 ```
 
 ---
 
 ```js
-document.body.addEventListener（"mousemove", function（） { 
-	//为mousemove事件注册处理器
-    var second = document.getElementById（"second"）;
-    addMessage（second, "Event: mousemove"）;
-}）;
-document.body.addEventListener（"click", function（）{ 
-	//为click事件注册处理器
-    var second = document.getElementById（"second"）;
-    addMessage（second, "Event: click"）;
-}）;
+document.body.addEventListener("mousemove", function() {
+    //为mousemove事件注册处理器
+    var second = document.getElementById("second");
+    addMessage(second, "Event: mousemove");
+});
+
+document.body.addEventListener("click", function(){
+    //为click事件注册处理器
+    var second = document.getElementById("second");
+    addMessage(second, "Event: click");
+});
 ```
 
 前者缺点：
 
-对于某个事件只能注册一个事件处理器。也就是说，一不小心就会将上一个事件处理器改写掉
+对于某个事件只能注册一个事件处理器。也就是说，一不小心就会将上一个事件处理器（所谓的回调函数呀！这个回调函数是浏览器自己去调用的）改写掉
 
 后者优点：
 
@@ -150,6 +151,10 @@ document.body.addEventListener（"click", function（）{
 ### 9. 运行时的页面构建过程之生命周期概览：页面构建和事件处理
 
 ![1556535670250](img/faq/1556535670250.png)
+
+> 浏览器接收的HTML代码用作创建**DOM的蓝图**，它是客户端Web应用结构的**内部展示阶段**。
+>
+> 即便script标签里边该执行的代码都执行完了，但是我们还是有机会去修改DOM树的节点的，因为我们还有事件处理呀！只要Web页面不关闭，我们就有程序与用户交互！用户做什么动作，我们就会有相应的程序执行给他们看！
 
 一个页面的打开到一个页面的关闭，意味着该页面生命的结束！
 
