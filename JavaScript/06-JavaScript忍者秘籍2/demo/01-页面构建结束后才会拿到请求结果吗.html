@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>我是标题</h1>
+  <button id="btn">点我，有惊喜！</button>
+  <script>
+    console.log('script1开始')
+    console.log('script1的多行代码')
+    let request = new XMLHttpRequest()
+    request.open('get', 'https://cnodejs.org/api/v1/topics') // 配置request
+    request.send()
+    request.onreadystatechange = () => {
+      if (request.readyState === 4) {
+        if (request.status >= 200 && request.status < 300) {
+          let string = request.responseText
+          let object = window.JSON.parse(string)
+          console.log('请求成功')
+          console.log(object)
+        } else if (request.status >= 400) {
+          console.log('说明请求失败')
+        }
+
+      }
+    }
+    let btn = document.getElementById('btn')
+    btn.addEventListener('click',()=>{
+      console.log('有人点了按钮')
+    })
+    console.log('script1结束')
+  </script>
+  <script>
+    console.log('script2开始')
+    // alert(2)
+    for(let i = 0; i < 10000; i++) {
+      console.log(2)
+    }
+    console.log('script2的多行代码')
+    console.log('script2结束')
+  </script>
+  <h1>我还有个标题呀！</h1>
+  <h1>我还有个标题呀！</h1>
+  <h1>我还有个标题呀！</h1>
+  <h1>我还有个标题呀！</h1>
+  <h1>我还有个标题呀！</h1>
+  <h1>我还有个标题呀！</h1>
+  <h1>我还有个标题呀！</h1>
+</body>
+
+</html>

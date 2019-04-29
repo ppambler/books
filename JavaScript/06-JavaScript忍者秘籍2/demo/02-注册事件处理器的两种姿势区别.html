@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>我是一个DOM元素</h1>
+  <button id="btn">别说话，点我！我是onxxx属性姿势</button>
+  <button id="btnn">我是addEventListener姿势</button>
+  <script>
+    const btn = document.getElementById('btn')
+    btn.onclick = () => {
+      console.log('按钮被点击了')
+    }
+    btn.onmousemove = () => {
+      console.log('用户的鼠标在button元素上移动')
+    }
+    const btnn = document.getElementById('btnn')
+    btnn.addEventListener('click',()=>{
+      console.log('我是addEventListener，被点击了')
+    })
+    btnn.addEventListener('mousemove',()=>{
+      console.log('我是addEventListener，有只老鼠在我按钮上跑来跑去！')
+    })
+    btnn.addEventListener('click',()=>{
+      console.log('我是addEventListener，我被点击了，但我执行了两次，而onxxx属性就不能像我这样')
+    })
+  </script>
+</body>
+</html>
