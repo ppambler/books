@@ -218,11 +218,32 @@ JavaScript：对象里边的函数叫方法，对象外边的函数叫函数！
 
 ### 2. 回调函数在哪种情况下会同步调用，或者异步调用呢？
 
+同步回调（不等结果，直接调用）：
+
+```js
+function useless(ninjaCallback) {
+　return ninjaCallback();
+}
+```
+
+异步调用（等待结果，某个合适的时间点）：
+
+```js
+document.body.addEventListener("mousemove", function() {
+　var second = document.getElementById("second");
+　addMessage(second, "Event: mousemove");
+});
+```
+
 
 
 ### 3.  箭头函数和函数表达式的区别是什么？
 
+基本没啥区别，箭头函数是函数表达式的语法糖！
+
 ### 4. 你为什么需要在函数中使用默认参数？
+
+当用户传的实参数量少于形参数量时，就会出现形参为空值的情况，为了避免这种情况，我们还可以使用惰性求值，即兜底求值的做法，来避免这种情况，不过使用ES6的新特性——默认参数，显然要简洁、方便很多！
 
 ### 5. 存储函数？
 
