@@ -84,7 +84,35 @@ Web APIs通常与JavaScript一起使用，但并非总是如此。
 
 ### 6. 关于断言函数？
 
-第一个参数为true，那么第二个参数就有意义了，然后就可以搞事情了！
+第一个参数为true，那么第二个参数就有意义了，然后就可以搞事情了！不过一般用于测试代码是否按预期的执行！
+
+```js
+function assert(value, text) {
+  var li = document.createElement("li");
+  li.className = value ? "pass" : "fail";
+  li.appendChild(document.createTextNode(text));
+  var results = document.getElementById("results");
+  if (!results) {
+    results = document.createElement("ul");
+    results.setAttribute('id','results');
+    document.body.appendChild(results);
+  }
+  results.appendChild(li);
+}
+
+function pass(text) { assert(true, text); }
+function fail(text) { assert(false, text); }
+function report(text) { pass(text); }
+```
+
+使用：
+
+```js
+assert(store.add(ninja),"Function was safely added.");
+assert(!store.add(ninja),"But it was only added once.");
+```
+
+下边这个代码形式上就与assert函数很类似了
 
 ```js
 document.body.addEventListener("click", function(){		   //#C
@@ -195,3 +223,123 @@ JavaScript：对象里边的函数叫方法，对象外边的函数叫函数！
 ### 3.  箭头函数和函数表达式的区别是什么？
 
 ### 4. 你为什么需要在函数中使用默认参数？
+
+### 5. 存储函数？
+
+```js
+//store：仓库、商店之意，用于存储不带重复的函数！
+var store = {
+    nextId: 1, //跟踪下一个要被复制的函数
+    cache: {}, //使用一个对象作为缓存， 我们可以在其中存储函数
+    add: function(fn) {
+        if (!fn.id) {
+            fn.id = this.nextId++;
+            this.cache[fn.id] = fn;
+            return true;
+        }
+    } //仅当函数唯一时， 将该函数加入缓存
+};
+
+function ninja(){}
+
+assert(store.add(ninja),
+       "Function was safely added."); //测试上面的代码按预期工作
+assert(!store.add(ninja),
+       "But it was only added once.");
+```
+
+这个代码很有意思：` this.cache[fn.id] = fn;` 为cache选项对象属性添加的属性是动态，即与这个函数的id是一致的！
+
+![1557030355037](img/faq/1557030355037.png)
+
+之前写的event-hub，用于自定义事件，触发回调：
+
+```js
+window.eventHub = {
+    // 定义一个hash表
+    events:{
+
+    },
+    // 发布
+    emit(eventName,data) {
+        for(let key in this.events) {
+            if(key === eventName) {
+                let fnList = this.events[key]
+                // 推使用map，因为相较于forEach有返回值哈
+                fnList.map((fn)=>{
+                    fn.call(undefined,data)
+                })
+                
+            }
+        }
+    },
+    // 订阅
+    on(eventName,fn) {
+        if(this.events[eventName] === undefined) {
+            this.events[eventName] = []
+        }
+        this.events[eventName].push(fn)
+    }
+}
+```
+
+### 6. 自记忆函数？（论函数属性的重要性）
+
+> 记忆化（memoization）是一种构建函数的处理过程，能够记住上次计算结果
+
+这种函数可以自己曾经接收过的参数，至此，就不需要重新计算了，即直接就可以拿到结果！
+
+举个栗子来说，如（判断一个数是不是素数）：
+
+```js
+    function isPrime(value) {
+      if (!isPrime.answers) {
+        isPrime.answers = {};
+      } //创建缓存，调用函数，然后函数自己为自己添加属性，而不是我们在这个函数外边创建，可见我们这封装很完整
+
+      if (isPrime.answers[value] !== undefined) {
+        return isPrime.answers[value];
+      } //检查缓存的值
+
+      var prime = value !== 1;
+	 
+      //用于计算素数的这个算法很简单，当然，这效率确实不高哈！但
+      for (var i = 2; i < value; i++) {
+        if (value % i === 0) {
+          prime = false;
+          break;
+        }
+      } //如果所传的参数是很大的数的话，那么这个循环的计算量也是挺大的！如果我们重复传相同的参数，
+        //那么这计算显然也是重复进行的，因此我们的缓存就起作用了，即可以让你无须重复计算，直接拿到结果
+
+      return isPrime.answers[value] = prime; //存储计算的值
+    }
+
+    assert(isPrime(5), "5 is prime!" ); //测试该函数是否正常工作
+    assert(isPrime.answers[5], "The answer was cached!" );
+```
+
+> 我开始明白看一些优秀的JavaScript源码的意义了！
+
+测试结果：
+
+![1557033729225](img/faq/1557033729225.png)
+
+总之，我们可以按照参数把结果存储起来！函数在，即函数的这个缓存属性也就在了！
+
+> 与上边那个问题的区别：一个是存粹的放，不要结果的记忆，一个是放，要结果的记忆！
+
+适用场景：
+
+1. 动画中的计算、搜索不经常变化的数据或任何耗时的数学计算
+2. 通过字符串生成MD5
+
+> 为什么说函数作为一等公民呢？
+>
+> 1. 可以作为参数
+> 2. 可以回调
+> 3. 函数也可以有属性呀！
+> 4. ……
+>
+> 对象？一等公民？做梦……
+
