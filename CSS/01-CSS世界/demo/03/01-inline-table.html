@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .inline-table {
+      display: inline-table;
+      width: 128px;
+      margin-left: 10px;
+      border: 1px solid #cccccc;
+    }
+    /* 如果父级元素是table，且设置了table-cell,那么p会把自己当作是表格来渲染 */
+    /* 即子元素宽度等分 */
+    .inline-table > p {
+      display: table-cell;
+      text-align: center;
+    }
+    .inline-block {
+      display: inline-block;
+      margin-left: 10px;
+      border: 1px solid #cccccc;
+      width: 128px;
+      vertical-align: bottom;
+    }
+    /* 父级元素不是table,table-cell起作用的外在盒子inline。 */
+    /* 其实这很奇怪啊!table这个前缀理应是换行才对呀！而且cell也失效了 */
+    /* 这就像是做了一个这样的判断：如果父级元素 */
+    .inline-block > p {
+      /* 这个还是起作用了，父元素为inline-table像是糖一样，直接自己计算出均等分为64px，不用我们开发者自己计算！ */
+      /* 除此之外没啥区别，这给我的认识是，父元素的display值是会影响子元素的display的 */
+      /* 浏览器给它的initial值是inline */
+      display: table-cell; 
+      /* display: inline; 无法设置宽高 */
+      /* display: inline-block; 如果是这个，不会同处一行，这一点很奇怪，你会发现p的margin-top没有合并*/
+      /* 我在想父级元素的display会影响子元素的display，如父为inline-block，子一样，那么子的表现等价于于inherit */
+      /* 相较于block的margin-top合并！它们之间仅仅是margin-bootom与margin-top有没有合并*/
+      text-align: center;
+      /* 如果没有宽度，那么就会等同于inline，而table-cell比inline的好在于它可以设置宽度！ */
+      width: 64px; 
+    }
+  </style>
+</head>
+<body>
+    和文字平起平坐的表格：
+    <div class="inline-table">
+        <p>第1列</p>
+        <p>第2列</p>
+    </div>
+    <div class="inline-block">
+        <p>第1列</p>
+        <p>第2列</p>
+    </div>
+    <!-- <ul> -->
+        <li>我是list</li>
+    <!-- </ul> -->
+    <span style="border: 1px solid red;">我是span</span>
+    <span style="border: 1px solid red;">我是span</span>
+</body>
+</html>

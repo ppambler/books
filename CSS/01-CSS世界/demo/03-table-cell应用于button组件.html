@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      /*咩有这个样式就乱套了，毕竟用的不是默认的盒模型*/
+      box-sizing: border-box;
+    }
+
+    /*全局变量，你换成html{}也是可以的*/
+    :root {
+      /*按钮初始化的默认值，在这里颜色很关键呀！*/
+      --button-height: 32px;
+      --font-size: 14px;
+      --button-bg: white;
+      --button-active-bg: #eee;
+      --border-radius: 4px;
+      --color: #333;
+      --border-color: #999;
+      --border-color-hover: #666;
+    }
+
+    body {
+      font-size: var(--font-size);
+    }
+
+    .icon {
+      width: 1em;
+      height: 1em;
+      vertical-align: -0.15em;
+      fill: currentColor;
+      overflow: hidden;
+    }
+  </style>
+  <style>
+    .btn {
+      font-size: var(--font-size);
+      height: var(--button-height);
+      padding: 0 1em;
+      border-radius: var(--border-radius);
+      border: 1px solid var(--border-color);
+      background: var(--button-bg);
+      margin-top: 100px;
+      margin-left: 100px;
+    }
+
+    .btn:hover {
+      border-color: var(--border-color-hover);
+    }
+
+    .btn:active {
+      background-color: var(--button-active-bg);
+    }
+
+    .btn:focus {
+      outline: none;
+    }
+  </style>
+  <style>
+    .icon-cell {
+      width: 1em;
+      height: 1em;
+    }
+    .btn-table {
+      display: inline-table;
+    }
+    .btn-table .icon-cell {
+      display: table-cell;
+    }
+    .btn-table span {
+      display: table-cell;
+    }
+  </style>
+</head>
+
+<body>
+  <button class="btn">
+    <svg class="icon" aria-hidden="true">
+      <use xlink:href="#i-HTML"></use>
+    </svg>
+    HTML
+  </button>
+  <button class="btn">
+    <svg class="icon" aria-hidden="true">
+      <use xlink:href="#i-CSS"></use>
+    </svg>
+    CSS
+  </button>
+  <button class="btn">
+    <svg class="icon" aria-hidden="true">
+      <use xlink:href="#i-JS"></use>
+    </svg>
+    JavaScript
+  </button>
+  <button class="btn">
+      <svg class="icon" aria-hidden="true">
+        <use xlink:href="#i-JS"></use>
+      </svg>
+      按钮
+  </button>
+  <!-- 其实对齐就用 vertical-align: -0.15em;好了，为啥自己好要傻傻的为了使用tabl-->
+  <button class="btn btn-table">
+      <svg class="icon-cell" aria-hidden="true">
+        <use xlink:href="#i-JS"></use>
+      </svg>
+      <span>按钮</span>
+  </button>  
+  <script src="//at.alicdn.com/t/font_1184644_e4ql32uy7k.js"></script>
+</body>
+
+</html>
