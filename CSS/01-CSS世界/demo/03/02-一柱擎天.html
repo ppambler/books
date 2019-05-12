@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    table {
+      font-size: 12px;
+      width: 280px;
+      margin: 0 auto;
+      text-align: left;
+      background: #a0b3d6;
+      /* 这属性解决了cell的间隔，有了这个就不需要cellpadding:0;cellspacing:0;s */
+      border-spacing: 1px;
+     
+    }
+    table tr td {
+      padding: 2px 4px;
+      border: 3px solid #fff;
+      background: #f9f9f9;
+    }
+
+    .fa {
+      position: relative;
+      width: 10px;
+    }
+    .son {
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+
+  <table >
+    <tr>
+      <td>就1列就1列就1列就1列就1列</td>
+      <td>当父级relative，且宽度很小的时候，例如{position:relative; width:20px;}，absolute元素也会出现一柱擎天的情况；</td>
+      <td>当父级relative，且宽度很小的时候，例如{position:relative; width:20px;}，absolute元素也会出现一柱擎天的情况；</td>
+    </tr>
+  </table>
+  <!-- 这算一柱擎天吗？不就是给了宽度吗？absolute等有没有东西呀！真无聊…… -->
+  <!-- 这个面对连续的英文数字，是会重新计算容器的宽度的！即我们设置的width无效了！ -->
+  <div class="fa">
+    <div class="son">
+        就1列就1列就1列就1列就1列大大大安达市大所大大多adadasdad12131231
+    </div>
+  </div>
+</body>
+
+</html>
