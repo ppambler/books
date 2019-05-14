@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .ao,
+    .tu,
+    .ao-z {
+      display: inline-block;
+      width: 0;
+      font-size: 14px;
+      line-height: 18px;
+      margin: 35px;
+      color: #fff;
+    }
+    .ao-z {
+      color: black;
+    }
+    .ao:before,
+    .tu:before {
+      outline: 2px solid #cd0000;
+      font-family: Consolas, Monaco, monospace;
+    }
+
+    .ao:before {
+      content: "love你love";
+    }
+
+    .tu {
+      direction: rtl;
+    }
+
+    .tu:before {
+      content: "我love你";
+    }
+    .xxx {
+      outline: 2px solid #cd0000;
+      font-family: Consolas, Monaco, monospace;
+    }
+  </style>
+</head>
+
+<body>
+  <span class="ao"></span>
+  <span class="tu"></span>
+  <span class="ao-z">
+    <span class="xxx">love你love</span>
+  </span>
+</body>
+
+</html>
