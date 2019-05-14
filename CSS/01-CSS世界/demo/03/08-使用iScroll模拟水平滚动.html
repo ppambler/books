@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing:border-box;
+      margin: 0;
+      padding: 0;
+    }
+    .wrap {
+      margin: 100px auto;
+    }
+    .wrap {
+      width: 300px;
+      height: 200px;
+      /* 给滚动条定位居中的，滚动条就是absolute的！ */
+      position: relative;
+      overflow: hidden;
+    }
+
+    .wrap>ul {
+      /* 我不知道这个absolute的作用 */
+      position: absolute;
+      /* 这个属性针对ul有默认的边距啊！而且还有项目符号*/
+      padding: 0;
+      /* 阻止图文换行 */
+      white-space: nowrap;
+    }
+
+    .wrap li {
+      /* 不换行的流 */
+      display: inline-block;
+    }
+
+    .wrap li::before {
+      /* 可以动态读取当前li元素上的data-index属性值 */
+      content: attr(data-index);
+      position: absolute;
+      margin: 5px;
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, .5);
+      width: 22px;
+      height: 22px;
+      line-height: 22px;
+      text-align: center;
+      color: #fff;
+      font-size: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 这个html结构是标准姿势，在做轮播图的时候 -->
+  <div id="wrap" class="wrap">
+    <ul>
+      <li data-index="1"><img src="../img/256-192.jpg"></li>
+      <li data-index="2"><img src="../img/256-192.jpg"></li>
+      <li data-index="3"><img src="../img/256-192.jpg"></li>
+      <li data-index="4"><img src="../img/256-192.jpg"></li>
+      <li data-index="5"><img src="../img/256-192.jpg"></li>
+    </ul>
+  </div>
+  <script src="https://cdn.bootcss.com/iScroll/5.2.0/iscroll.min.js"></script>
+  <script>
+    console.log(new IScroll('#wrap',{}))
+    new IScroll('#wrap', {
+      scrollbars: true,
+      scrollX: true,
+      scrollY: false
+    });
+  </script>
+</body>
+
+</html>
