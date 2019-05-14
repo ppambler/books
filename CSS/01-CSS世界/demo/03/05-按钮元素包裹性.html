@@ -11,6 +11,14 @@
       width: 240px;
       margin: 20px auto;
     }
+    .fa {
+      width: 500px;
+      border: 1px solid red;
+    }
+    .son {
+      width: 600px;
+      border: 1px solid  yellow;
+    }
   </style>
 </head>
 
@@ -19,11 +27,17 @@
     <button>按钮</button>
   </div>
   <div class="box">
-      <button>文字再多一点</button>
+    <button>文字再多一点</button>
+  </div>
+  <div class="box">
+    <button>按钮文字越多宽度越宽（包裹，内部尺寸特性），但不会超过容器宽度（自适应性）</button>
+  </div>
+
+  <div class="fa">
+    <div class="son">我的首选宽度很大，比父元素还要大,所以我的尺寸是要大于包含块容器的尺寸的！你看到我溢出了吗？不然我是有自适应性的
+      所以作为子元素的我还是不要写宽度好！
     </div>
-    <div class="box">
-        <button>按钮文字越多宽度越宽（包裹，内部尺寸特性），但不会超过容器宽度（自适应性）</button>
-      </div>
+  </div>
 </body>
 
 </html>
