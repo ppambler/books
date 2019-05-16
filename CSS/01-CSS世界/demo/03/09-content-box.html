@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .div {
+      width: 100px;
+      padding: 20px;
+      border: 20px solid;
+
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <p>HTMLElement.offsetWidth
+    是一个只读属性，返回一个元素的布局宽度。<br>一个典型的（译者注：各浏览器的offsetWidth可能有所不同）offsetWidth是测量包含元素的边框(border)、水平线上的内边距(padding)、竖直方向滚动条(scrollbar)（如果存在的话）、以及CSS设置的宽度(width)的值。
+  </p>
+  <p>CSS3中的border-box模型的宽度。</p>
+  <div class="div">
+    此时元素的offsetWidth是：<span id="divWidth"></span>
+  </div>
+  <script>
+    var eleShowWidth = document.getElementById('divWidth');
+    if (eleShowWidth) {
+      eleShowWidth.innerHTML = eleShowWidth.parentNode.offsetWidth;
+    }
+    console.log(eleShowWidth.parentNode.offsetWidth)
+    console.log(eleShowWidth.parentNode.offsetHeight)
+    console.log(eleShowWidth.parentNode.getBoundingClientRect())
+  </script>
+</body>
+
+</html>
