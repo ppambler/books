@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .box1 {
+      /* 确定盒子尺寸 */
+      width: 100px;
+      border: 1px solid red;
+    }
+    .wrap {
+      width: 102px;
+      outline: 1px solid red;
+    }
+    button {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- 没有宽度分离 -->
+  <div class="box1" id="boxx">
+    我是box1，没有宽度分离
+  </div>
+
+  <button id="btn1">添加20px的padding</button>
+  <button id="btn3">对width减去40px，为了不影响之前的布局</button>
+  <!-- 有宽度分离 -->
+  <div class="wrap">
+    <div class="box2" id="boxy">
+      我是box2，有宽度分离
+    </div>
+  </div>
+
+  <button id="btn2">添加20px的padding</button>
+  <script>
+    btn1.addEventListener('click',()=> {
+      boxx.style.padding = '20px'
+    })
+    btn2.addEventListener('click',()=> {
+      boxy.style.padding = '20px'
+    })
+    btn3.addEventListener('click',()=>{
+      boxx.style.width = '60px'
+    })
+  </script>
+</body>
+</html>
