@@ -8,6 +8,7 @@
 - [JS经典实例2](./JavaScript/04-JS经典实例2/README.md)
 - [JS正则表达式迷你书](./JavaScript/05-JS正则表达式迷你书/README.md)
 - [JavaScript忍者秘籍（第二版）](./JavaScript/06-JavaScript忍者秘籍2/README.md)
+- [Head First JavaScript程序设计](./JavaScript/07-head-first-JS-2/README.md)
 
 ## ★CSS
 
