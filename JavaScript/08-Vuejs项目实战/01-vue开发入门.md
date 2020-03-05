@@ -362,7 +362,7 @@ expression1[expression2]
 
 **➹：**[js语句和表达式分别是什么，区别是什么，什么时候需要用分号作为结束标志呢？ - 知乎](https://www.zhihu.com/question/39420977)
 
-**➹：**[模板字符串 - JavaScript | MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/template_strings)
+**➹：**[模板字符串 - JavaScript - MDN](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/template_strings)
 
 **➹：**[为什么数学里会证明一些显而易见的东西? - 知乎](https://www.zhihu.com/question/51439301)
 
