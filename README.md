@@ -7,6 +7,10 @@
 - [Learn to code - freeCodeCamp.org](https://www.freecodecamp.org/)
 - [Awesome!](https://flaviocopes.com/page/list-subscribed/)
 
+## Handbook
+
+- [01-The HTML Handbook](./handbook/01/README.md)
+
 ## ★Others
 
 - [01-七周七语言](./others/01/README.md)
@@ -14,6 +18,8 @@
 
 
 ## ★HTML
+
+
 
 
 
@@ -31,7 +37,6 @@
 - [JavaScript忍者秘籍（第二版）](./JavaScript/06-JavaScript忍者秘籍2/README.md)
 - [Head First JavaScript程序设计](./JavaScript/07-head-first-JS-2/README.md)
 - [Vuejs项目实战](./JavaScript/08-Vuejs项目实战/README.md)
-- [The Vue Handbook](./JavaScript/09-the-vue-handbook/README.md)
 
 ## ★Node.js 
 
