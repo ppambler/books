@@ -7,7 +7,7 @@
 - [Learn to code - freeCodeCamp.org](https://www.freecodecamp.org/)
 - [Awesome!](https://flaviocopes.com/page/list-subscribed/)
 
-## Handbook
+## ★Handbook
 
 - [01-The HTML Handbook](./handbook/01/README.md)
 
